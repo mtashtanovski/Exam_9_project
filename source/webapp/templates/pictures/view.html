@@ -27,4 +27,11 @@
             <h5><a href="{% url 'webapp:album-view' picture.album.pk %}">{{ picture.album }}</a></h5>
         {% endif %}
     </div>
+    <div class="container">
+        <a class="link-generate" href="{% url 'webapp:link-generate' picture.pk %}=?next">Generate Link</a>
+    <p></p>
+    </div>
 {% endblock content %}
+{% block scripts %}
+
+{% endblock scripts %}

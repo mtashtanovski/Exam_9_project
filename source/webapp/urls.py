@@ -7,7 +7,7 @@ from webapp.views.pictures import (
     PictureView,
     PictureCreateView,
     PictureUpdateView,
-    PictureDeleteView
+    PictureDeleteView, LinkGenerationView
 )
 
 from webapp.views.albums import (
@@ -30,4 +30,6 @@ urlpatterns = [
     path('album/create/', AlbumCreateView.as_view(), name='album-create'),
     path('album/<int:pk>/update/', AlbumUpdateView.as_view(), name='album-update'),
     path('album/<int:pk>/delete/', AlbumDeleteView.as_view(), name='album-delete'),
+
+    path('picture/<int:pk>/link/', LinkGenerationView.as_view(), name="link-generate")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

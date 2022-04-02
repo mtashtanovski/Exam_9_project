@@ -1,8 +1,12 @@
+from uuid import uuid4
+
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.http import JsonResponse
 from django.shortcuts import render
 
 # Create your views here.
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse, reverse_lazy, resolve
+from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from webapp.forms import PictureForm
@@ -61,3 +65,23 @@ class PictureDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'pictures/delete.html'
     success_url = reverse_lazy('webapp:index')
     permission_required = 'webapp.delete_picture'
+
+
+class LinkGenerationView(LoginRequiredMixin, View):
+
+    def get(self, request, *args, **kwargs):
+        current_url = self.request.path
+        TOKEN = str(uuid4().hex)
+        full_url = current_url + TOKEN
+        context = JsonResponse(
+            {"full_url": full_url}
+        )
+        return context
+
+    def get_success_url(self):
+        next_url = self.request.GET.get('next')
+        if not next_url:
+            next_url = self.request.POST.get('next')
+        if not next_url:
+            next_url = reverse('webapp:index')
+        return next_url
