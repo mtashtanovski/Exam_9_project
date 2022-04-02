@@ -5,7 +5,7 @@ from webapp.models import Picture, Album
 class PictureForm(forms.ModelForm):
     class Meta:
         model = Picture
-        fields = ['image', 'signature', 'is_private']
+        fields = ['image', 'signature', 'is_private', 'album']
         exclude = ['author']
         widgets = {
             'signature': forms.Textarea(attrs={'rows': 5, 'cols': 50}),

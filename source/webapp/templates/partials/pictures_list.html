@@ -1,6 +1,6 @@
 <div class="row row-cols-3 row-cols-md-3 g-4">
     {% for picture in pictures %}
-
+    {% if not picture.is_private %}
     <div class="col">
         <div class="card">
             <img src="{{ picture.image.url }}" class="card-img-top" alt="...">
@@ -9,10 +9,13 @@
             <p class="card-text">{{ picture.author }}</p>
             </div>
             <div class="card-footer">
+                {% if picture.album %}
+                    <h5><a href="{% url 'webapp:album-view' picture.album.pk %}">{{ picture.album }}</a></h5>
+                {% endif %}
             <small class="text-muted">{{ picture.created_at }}</small>
             </div>
         </div>
     </div>
-
+    {% endif %}
     {% endfor %}
 </div>

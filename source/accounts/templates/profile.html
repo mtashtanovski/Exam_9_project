@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}User {{ user.pk }}{% endblock title %}
+
+
+{% block content %}
+    <div class="container">
+        <h2>Пользовательская страница</h2>
+    </div>
+    <div class="container">
+        <h5>Профиль пользователя: <strong>{{ user.username }}</strong></h5>
+        <p><strong>Почта: </strong>{{ user.email|default:"Не указана"}}</p>
+    </div>
+    <div class="container">
+        <h3><strong>Фото загруженные пользователем:</strong></h3>
+        {% include "partials/pictures_list.html" %}
+    </div>
+    <div class="container" style="padding-top: 15px">
+        <h3><strong>Альбомы пользователя:</strong></h3>
+        {% for album in albums %}
+            <li class="list-group-item">
+                <a href="{% url 'webapp:album-view' pk=album.pk %}">{{ album }}</a>
+            </li>
+        {% empty %}
+            <li>Нет альбомов.</li>
+        {% endfor %}
+    </div>
+{% endblock content %}

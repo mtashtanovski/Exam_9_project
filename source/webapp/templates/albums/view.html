@@ -15,7 +15,14 @@
 {% block content %}
 
     <div class="container">
-        <h3>Альбом {{ album.title }}</h3>
+        <h3>Альбом №{{ album.pk }}</h3>
+    </div>
+
+    <div class="container">
+        <h4>Название: <strong>{{ album.title }}</strong></h4>
+        <h4>Описание: {{ album.description }}</h4>
+        <h4>Дата создания: {{ album.created_at }}</h4>
+        <h4>Автор: {{ album.author }}</h4>
     </div>
 
     <div class="container">
