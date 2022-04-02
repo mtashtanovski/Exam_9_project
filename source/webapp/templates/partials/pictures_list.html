@@ -1,0 +1,14 @@
+<div class="card-group">
+    {% for picture in pictures %}
+    <div class="card">
+        <img src="{{ picture.image.url }}" class="card-img-top" alt="image">
+        <div class="card-body">
+            <h5 class="card-title">{{ picture.author }}</h5>
+            <p class="card-text">{{ picture.signature }}.</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">{{ picture.created_at }}</small>
+        </div>
+    </div>
+    {% endfor %}
+</div>

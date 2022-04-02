@@ -1,11 +1,13 @@
+from django.conf.urls.static import static
 from django.urls import path
 
-from webapp.views.views import (
-    index_view,
+from exam9_project import settings
+from webapp.views.pictures import (
+    IndexView,
 )
 
 app_name = 'webapp'
 
 urlpatterns = [
-    path('', index_view, name='index')
-]
+    path('', IndexView.as_view(), name='index')
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
