@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Album update{% endblock title %}
+
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'webapp:album-view' album.pk %}">Вернуться к альбому</a>
+    </li>
+{% endblock nav %}
+
+{% block content %}
+
+    <div class="container">
+        <h3>Обновить альбом</h3>
+    </div>
+
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            {% include "partials/form.html" with button_text="Создать" %}
+        </form>
+    </div>
+{% endblock content %}

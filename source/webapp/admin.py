@@ -6,7 +6,7 @@ from webapp.models import Picture, Album
 
 class PictureAdmin(admin.ModelAdmin):
     list_display = ['image', 'signature', 'created_at']
-    readonly_fields = ['created_at', 'author', 'album']
+    readonly_fields = ['created_at', 'author']
 
 
 class AlbumAdmin(admin.ModelAdmin):

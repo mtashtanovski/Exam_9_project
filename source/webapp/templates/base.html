@@ -35,6 +35,9 @@
                             <a class="nav-link" href="{% url 'webapp:picture-create' %}?next={{ request.get_full_path }}">Добавить Фото</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{% url 'webapp:album-create' %}?next={{ request.get_full_path }}">Добавить Альбом</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}">Выход</a>
                         </li>
                     {% endif %}

@@ -23,6 +23,8 @@
         <h4>{{ picture.author }}</h4>
         <h4>{{ picture.signature }}</h4>
         <h4>{{ picture.created_at }}</h4>
-        <h5>{{ picture.album }}</h5>
+        {% if picture.album %}
+            <h5><a href="{% url 'webapp:album-view' picture.album.pk %}">{{ picture.album }}</a></h5>
+        {% endif %}
     </div>
 {% endblock content %}
