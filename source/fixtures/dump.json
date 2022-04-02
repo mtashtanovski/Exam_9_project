@@ -1,0 +1,120 @@
+[
+{
+  "model": "webapp.picture",
+  "pk": 2,
+  "fields": {
+    "image": "media/new-york.jpeg",
+    "signature": "My New-York city today!",
+    "created_at": "2022-04-02T07:06:59.116Z",
+    "author": 1,
+    "album": null,
+    "is_private": false
+  }
+},
+{
+  "model": "webapp.picture",
+  "pk": 3,
+  "fields": {
+    "image": "media/bishkek.jpeg",
+    "signature": "Enjoying Bishkek today!",
+    "created_at": "2022-04-02T07:25:11.712Z",
+    "author": 1,
+    "album": null,
+    "is_private": false
+  }
+},
+{
+  "model": "webapp.picture",
+  "pk": 4,
+  "fields": {
+    "image": "media/dubai.jpeg",
+    "signature": "Dubai my city!",
+    "created_at": "2022-04-02T07:28:23.395Z",
+    "author": 1,
+    "album": null,
+    "is_private": true
+  }
+},
+{
+  "model": "webapp.picture",
+  "pk": 5,
+  "fields": {
+    "image": "media/london.jpeg",
+    "signature": "Want to go there next time!",
+    "created_at": "2022-04-02T08:17:32.415Z",
+    "author": 1,
+    "album": 2,
+    "is_private": false
+  }
+},
+{
+  "model": "webapp.picture",
+  "pk": 7,
+  "fields": {
+    "image": "media/golden_gates.webp",
+    "signature": "Golden Gates.",
+    "created_at": "2022-04-02T09:46:57.072Z",
+    "author": 1,
+    "album": 1,
+    "is_private": false
+  }
+},
+{
+  "model": "webapp.album",
+  "pk": 1,
+  "fields": {
+    "title": "Города!",
+    "description": "Путешествие в города мира",
+    "author": 1,
+    "created_at": "2022-04-02T09:45:17.483Z",
+    "is_private": false
+  }
+},
+{
+  "model": "webapp.album",
+  "pk": 2,
+  "fields": {
+    "title": "Action",
+    "description": "Adventure for whole life!",
+    "author": 1,
+    "created_at": "2022-04-02T09:54:42.447Z",
+    "is_private": false
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$SHjQZJujsnz7f23aOXEqS0$sKMS5m0Jf9nrizOyINgOw+2vvR+xKF1/RubmO6V5VWA=",
+    "last_login": "2022-04-02T12:03:05.937Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2022-04-01T14:02:36.685Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 8,
+  "fields": {
+    "password": "pbkdf2_sha256$320000$PDemkQTP9ZY33pA4k09OuL$ZJPQDDIzFvSXmLAUdu4NR1G+RZ1Cno0NCCE4tgHbwxk=",
+    "last_login": "2022-04-02T12:02:52.802Z",
+    "is_superuser": false,
+    "username": "test_user",
+    "first_name": "",
+    "last_name": "",
+    "email": "test_user@mail.ru",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2022-04-02T02:50:18.223Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
