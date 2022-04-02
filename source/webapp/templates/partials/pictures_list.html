@@ -1,14 +1,18 @@
-<div class="card-group">
+<div class="row row-cols-3 row-cols-md-3 g-4">
     {% for picture in pictures %}
-    <div class="card">
-        <img src="{{ picture.image.url }}" class="card-img-top" alt="image">
-        <div class="card-body">
-            <h5 class="card-title">{{ picture.author }}</h5>
-            <p class="card-text">{{ picture.signature }}.</p>
-        </div>
-        <div class="card-footer">
+
+    <div class="col">
+        <div class="card">
+            <img src="{{ picture.image.url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'webapp:picture-view' picture.pk %}">{{ picture.signature }}</a></h5>
+            <p class="card-text">{{ picture.author }}</p>
+            </div>
+            <div class="card-footer">
             <small class="text-muted">{{ picture.created_at }}</small>
+            </div>
         </div>
     </div>
+
     {% endfor %}
 </div>

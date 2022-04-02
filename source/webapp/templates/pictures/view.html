@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Picture{{ picture.pk }}{% endblock title %}
+
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'webapp:picture-update' picture.pk %}?next={{ request.get_full_path }}">Обновить фото</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'webapp:picture-delete' picture.pk %}?next={{ request.get_full_path }}">Удалить фото</a>
+    </li>
+{% endblock nav %}
+
+{% block content %}
+
+    <div class="container">
+        <h3>Картина от {{ picture.author }}</h3>
+    </div>
+
+    <div class="container">
+        <img src="{{ picture.image.url }}" class="img-fluid" alt="img">
+        <h4>{{ picture.author }}</h4>
+        <h4>{{ picture.signature }}</h4>
+        <h4>{{ picture.created_at }}</h4>
+        <h5>{{ picture.album }}</h5>
+    </div>
+{% endblock content %}
