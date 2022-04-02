@@ -1,4 +1,14 @@
 body {
-    font-family: "Droid Sans", sans-serif;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
     background: #f9f7f3;
+}
+
+.partials-input input {
+    width: 300px;
+}
+
+.partials-input input:focus {
+    outline: none !important;
+    border: none;
+    box-shadow: 0 0 10px #c0aee7;
 }
