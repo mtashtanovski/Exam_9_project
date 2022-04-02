@@ -10,7 +10,7 @@
             </div>
             <div class="card-footer">
                 {% if picture.album %}
-                    <h5><a href="{% url 'webapp:album-view' picture.album.pk %}">{{ picture.album }}</a></h5>
+                    <h5>Из альбома: <a href="{% url 'webapp:album-view' picture.album.pk %}">{{ picture.album }}</a></h5>
                 {% endif %}
             <small class="text-muted">{{ picture.created_at }}</small>
             </div>

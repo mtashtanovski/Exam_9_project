@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.shortcuts import render
 
 # Create your views here.
@@ -22,7 +23,7 @@ class IndexView(ListView):
         return context
 
 
-class PictureView(DetailView):
+class PictureView(LoginRequiredMixin, DetailView):
     template_name = "pictures/view.html"
     model = Picture
 
@@ -32,7 +33,7 @@ class PictureView(DetailView):
         return context
 
 
-class PictureCreateView(CreateView):
+class PictureCreateView(LoginRequiredMixin, CreateView):
     model = Picture
     form_class = PictureForm
     template_name = 'pictures/create.html'
@@ -45,16 +46,18 @@ class PictureCreateView(CreateView):
         return reverse('webapp:picture-view', kwargs={'pk': self.object.pk})
 
 
-class PictureUpdateView(UpdateView):
+class PictureUpdateView(PermissionRequiredMixin, UpdateView):
     model = Picture
     form_class = PictureForm
     template_name = 'pictures/update.html'
+    permission_required = 'webapp.change_picture'
 
     def get_success_url(self):
         return reverse('webapp:picture-view', kwargs={'pk': self.object.pk})
 
 
-class PictureDeleteView(DeleteView):
+class PictureDeleteView(PermissionRequiredMixin, DeleteView):
     model = Picture
     template_name = 'pictures/delete.html'
     success_url = reverse_lazy('webapp:index')
+    permission_required = 'webapp.delete_picture'

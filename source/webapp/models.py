@@ -87,3 +87,7 @@ class Album(models.Model):
     class Meta:
         verbose_name = 'Альбом'
         verbose_name_plural = 'Альбомы'
+        permissions = (
+            ('add_picture_in_own_album', "Добавлять фото в свой альбом"),
+            ('change_picture_in_own_album', "Удалять фото из своего альбома"),
+        )

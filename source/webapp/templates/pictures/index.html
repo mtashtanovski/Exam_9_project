@@ -12,6 +12,10 @@
     </div>
 
     <div class="container">
-        {% include "partials/pictures_list.html" %}
+        {% if not user.is_authenticated %}
+            <h3>Войдите через учетную запись для просмотра галлереи.</h3>
+        {% else %}
+            {% include "partials/pictures_list.html" %}
+        {% endif %}
     </div>
 {% endblock content %}
